@@ -1,0 +1,7 @@
+# Shell scripts must keep LF endings, Windows batch files CRLF.
+*.sh  text eol=lf
+*.bat text eol=crlf
+
+# Generated data and transcripts are compared byte-for-byte; never rewrite line endings.
+results/* -text
+logs/*    -text

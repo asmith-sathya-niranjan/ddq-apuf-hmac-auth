@@ -1,0 +1,114 @@
+{
+  "configuration": {
+    "stages": 32,
+    "test_crps": 20000,
+    "tag_bits": 64,
+    "noise_ps": 8.5,
+    "hidden_root_bits": 256,
+    "root_enrollment_samples": 31,
+    "root_boot_samples": 15
+  },
+  "legitimate": {
+    "root_bit_error_rate_pct": 0.0,
+    "exact_key_reconstruction_pct": 100.0,
+    "worst_root_bit_errors_in_one_boot": 0,
+    "authentication_success_pct": 100.0
+  },
+  "replay": {
+    "successful_replays": 0,
+    "attempts": 20000,
+    "success_pct": 0.0
+  },
+  "baseline_raw_ddq": [
+    {
+      "training_crps": 100,
+      "accept_d0_pct": 64.995,
+      "accept_d1_pct": 99.71,
+      "accept_d2_pct": 100.0,
+      "accept_d3_pct": 100.0,
+      "mae": 0.35295,
+      "rmse": 0.5989574275355469
+    },
+    {
+      "training_crps": 300,
+      "accept_d0_pct": 74.08500000000001,
+      "accept_d1_pct": 99.98,
+      "accept_d2_pct": 100.0,
+      "accept_d3_pct": 100.0,
+      "mae": 0.25935,
+      "rmse": 0.5096567472328802
+    },
+    {
+      "training_crps": 1000,
+      "accept_d0_pct": 76.27000000000001,
+      "accept_d1_pct": 100.0,
+      "accept_d2_pct": 100.0,
+      "accept_d3_pct": 100.0,
+      "mae": 0.2373,
+      "rmse": 0.487134478352744
+    },
+    {
+      "training_crps": 3000,
+      "accept_d0_pct": 76.98,
+      "accept_d1_pct": 100.0,
+      "accept_d2_pct": 100.0,
+      "accept_d3_pct": 100.0,
+      "mae": 0.2302,
+      "rmse": 0.4797916214358062
+    },
+    {
+      "training_crps": 10000,
+      "accept_d0_pct": 77.17,
+      "accept_d1_pct": 100.0,
+      "accept_d2_pct": 100.0,
+      "accept_d3_pct": 100.0,
+      "mae": 0.2283,
+      "rmse": 0.47780749261601163
+    }
+  ],
+  "controlled_hmac": [
+    {
+      "training_crps": 100,
+      "attacker_bit_accuracy_pct": 50.043671874999994,
+      "attacker_exact_tag_success_pct": 0.0,
+      "successful_full_tag_forgeries": 0,
+      "test_attempts": 20000
+    },
+    {
+      "training_crps": 300,
+      "attacker_bit_accuracy_pct": 50.00390625,
+      "attacker_exact_tag_success_pct": 0.0,
+      "successful_full_tag_forgeries": 0,
+      "test_attempts": 20000
+    },
+    {
+      "training_crps": 1000,
+      "attacker_bit_accuracy_pct": 50.063046875,
+      "attacker_exact_tag_success_pct": 0.0,
+      "successful_full_tag_forgeries": 0,
+      "test_attempts": 20000
+    },
+    {
+      "training_crps": 3000,
+      "attacker_bit_accuracy_pct": 50.00750000000001,
+      "attacker_exact_tag_success_pct": 0.0,
+      "successful_full_tag_forgeries": 0,
+      "test_attempts": 20000
+    },
+    {
+      "training_crps": 10000,
+      "attacker_bit_accuracy_pct": 50.05468749999999,
+      "attacker_exact_tag_success_pct": 0.0,
+      "successful_full_tag_forgeries": 0,
+      "test_attempts": 20000
+    }
+  ],
+  "theoretical_random_full_tag_success": 5.421010862427522e-20,
+  "limitations": [
+    "Simulation only; no FPGA placement, routing, voltage, temperature, aging, or side-channel effects.",
+    "Stable-bit selection is a stand-in for a proper fuzzy extractor and error-correcting code.",
+    "The entropy of the reconstructed root key is assumed, not measured on hardware.",
+    "Only the supplied least-squares attack family is compared in this run.",
+    "Security depends on blocking raw PUF/debug access and protecting the reconstructed key."
+  ]
+}

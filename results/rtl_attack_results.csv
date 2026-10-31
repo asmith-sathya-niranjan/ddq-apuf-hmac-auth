@@ -1,0 +1,6 @@
+training_transactions,bit_prediction_accuracy_pct,full_tag_attack_success_pct,successful_forgeries,test_attempts
+100,49.9234375,0.0,0,2000
+300,50.07812499999999,0.0,0,2000
+1000,49.97890625,0.0,0,2000
+3000,49.9859375,0.0,0,2000
+10000,50.103906249999994,0.0,0,2000

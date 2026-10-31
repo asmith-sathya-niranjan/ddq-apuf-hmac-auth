@@ -1,0 +1,56 @@
+# ---------------------------------------------------------------------------
+# Vivado / XSim generated files
+# (the .tcl scripts in vivado/ are kept; the projects they create are not)
+# ---------------------------------------------------------------------------
+vivado/*/
+.Xil/
+xsim_work/
+xsim.dir/
+vivado*.jou
+vivado*.log
+vivado*.str
+*.backup.jou
+*.backup.log
+xsim*.jou
+xsim*.log
+xvlog.log
+xelab.log
+*.pb
+*.wdb
+webtalk*
+hs_err_pid*
+
+# ---------------------------------------------------------------------------
+# Simulation output
+# ---------------------------------------------------------------------------
+*.vvp
+*.vcd
+*.fst
+dump.vcd
+
+# Dataset written by the testbench (copy it to results/ if you want to keep it)
+work/secure_vivado/results/*.csv
+
+# ---------------------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------------------
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# ---------------------------------------------------------------------------
+# Third-party documents (copyright): keep local, do not commit
+# ---------------------------------------------------------------------------
+docs/*.pdf
+
+# ---------------------------------------------------------------------------
+# OS / editor
+# ---------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/

@@ -1,0 +1,47 @@
+{
+  "source": "SystemVerilog RTL generated tags",
+  "tag_bits": 64,
+  "modeling_attack": [
+    {
+      "training_transactions": 100,
+      "bit_prediction_accuracy_pct": 49.9234375,
+      "full_tag_attack_success_pct": 0.0,
+      "successful_forgeries": 0,
+      "test_attempts": 2000
+    },
+    {
+      "training_transactions": 300,
+      "bit_prediction_accuracy_pct": 50.07812499999999,
+      "full_tag_attack_success_pct": 0.0,
+      "successful_forgeries": 0,
+      "test_attempts": 2000
+    },
+    {
+      "training_transactions": 1000,
+      "bit_prediction_accuracy_pct": 49.97890625,
+      "full_tag_attack_success_pct": 0.0,
+      "successful_forgeries": 0,
+      "test_attempts": 2000
+    },
+    {
+      "training_transactions": 3000,
+      "bit_prediction_accuracy_pct": 49.9859375,
+      "full_tag_attack_success_pct": 0.0,
+      "successful_forgeries": 0,
+      "test_attempts": 2000
+    },
+    {
+      "training_transactions": 10000,
+      "bit_prediction_accuracy_pct": 50.103906249999994,
+      "full_tag_attack_success_pct": 0.0,
+      "successful_forgeries": 0,
+      "test_attempts": 2000
+    }
+  ],
+  "replay_attack": {
+    "attempts": 2000,
+    "successful_replays": 0,
+    "success_pct": 0.0
+  },
+  "ideal_random_full_tag_probability": 5.421010862427522e-20
+}

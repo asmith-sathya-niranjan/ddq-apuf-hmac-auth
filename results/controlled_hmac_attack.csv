@@ -1,0 +1,6 @@
+training_crps,attacker_bit_accuracy_pct,attacker_exact_tag_success_pct,successful_full_tag_forgeries,test_attempts
+100,50.043671874999994,0.0,0,20000
+300,50.00390625,0.0,0,20000
+1000,50.063046875,0.0,0,20000
+3000,50.00750000000001,0.0,0,20000
+10000,50.05468749999999,0.0,0,20000

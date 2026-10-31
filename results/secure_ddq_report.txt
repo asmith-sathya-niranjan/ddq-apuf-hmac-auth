@@ -1,0 +1,24 @@
+CONTROLLED DDQ SECURITY EXPERIMENT
+==================================
+Root-bit BER: 0.000000%
+Exact key reconstruction: 100.000% (1000/1000)
+Replay success with a fresh nonce: 0.000000% (0/20000)
+
+Raw numerical DDQ response exposed:
+CRPs     d=0       d=1       d=2       d=3       MAE      RMSE
+  100    64.995    99.710   100.000   100.000    0.353    0.599
+  300    74.085    99.980   100.000   100.000    0.259    0.510
+ 1000    76.270   100.000   100.000   100.000    0.237    0.487
+ 3000    76.980   100.000   100.000   100.000    0.230    0.480
+10000    77.170   100.000   100.000   100.000    0.228    0.478
+
+Controlled interface, 64-bit HMAC tag:
+CRPs     bit accuracy    exact-tag success    exact forgeries
+  100        50.044%          0.000000%                0
+  300        50.004%          0.000000%                0
+ 1000        50.063%          0.000000%                0
+ 3000        50.008%          0.000000%                0
+10000        50.055%          0.000000%                0
+
+Ideal random full-tag probability per attempt: 2^-64 = 5.421e-20
+This result demonstrates the wrapper in this simulation; it is not a hardware security certification.

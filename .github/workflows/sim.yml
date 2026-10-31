@@ -1,0 +1,67 @@
+name: simulate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  hmac-and-python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install tools
+        run: |
+          sudo apt-get update && sudo apt-get install -y iverilog
+          pip install numpy matplotlib
+
+      - name: HMAC-SHA-256 and secure top-level testbenches
+        run: |
+          iverilog -g2012 -o hmac.vvp rtl/sha256_compress.sv rtl/hmac_sha256_fixed.sv tb/tb_hmac_sha256_fixed.sv
+          vvp hmac.vvp | tee hmac.out
+          grep -q "TEST PASSED - 0 error" hmac.out
+          iverilog -g2012 -o top.vvp rtl/sha256_compress.sv rtl/hmac_sha256_fixed.sv rtl/secure_ddq_auth_top.sv tb/tb_secure_ddq_auth_top.sv
+          vvp top.vvp | tee top.out
+          grep -q "TEST PASSED - 0 error" top.out
+
+      - name: Python models run
+        run: |
+          python3 ddq_regression_attack.py
+          python3 ddq_regression_attack_3pxor.py
+          python3 secure_ddq_experiment.py
+
+  puf-simulations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Icarus Verilog
+        run: sudo apt-get update && sudo apt-get install -y iverilog
+
+      - name: DDQ-APUF, SAR and temperature testbenches
+        run: |
+          bash scripts/run_icarus.sh
+          for l in run run_sar run_temp; do grep -q "TEST PASSED" logs/$l.log; done
+
+  rtl-dataset:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install tools
+        run: |
+          sudo apt-get update && sudo apt-get install -y iverilog
+          pip install numpy
+
+      - name: Generate 14,000 RTL tags and compare with the committed dataset
+        run: |
+          mkdir -p work/secure_vivado/results
+          iverilog -g2012 -o gen.vvp rtl/sha256_compress.sv rtl/hmac_sha256_fixed.sv rtl/secure_ddq_auth_top.sv tb/tb_generate_auth_dataset.sv
+          vvp gen.vvp | tee gen.out
+          grep -q "DATASET PASSED" gen.out
+          cmp work/secure_vivado/results/rtl_auth_dataset.csv results/rtl_auth_dataset.csv
+
+      - name: Attack on the RTL-generated tags reproduces the committed results
+        run: |
+          python3 scripts/attack_rtl_tags.py
+          git diff --exit-code results/rtl_attack_results.csv results/rtl_attack_results.json

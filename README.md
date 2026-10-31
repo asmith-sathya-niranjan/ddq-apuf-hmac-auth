@@ -153,7 +153,7 @@ The baseline design reproduces: Wang, Zhang, Mei and Gu, "A High-Reliability Non
 
 | Name | GitHub | 
 |------|--------|
-| Asmitha Sathya Niranjan | [@asmith-sathya-niranjan](https://github.com/asmith-sathya-niranjan) | 
-| Arjun J S | [@username](https://github.com/username) | 
-| Harivallabh Ashok | [@username](https://github.com/username) |
+| Asmitha Sathya Niranjan | [@Asmitha Sathya Niranjan](https://github.com/asmith-sathya-niranjan) | 
+| Arjun J S | [@Arjun J S](https://github.com/username) | 
+| Harivallabh Ashok | [@Harivallabh Ashok](https://github.com/username) |
 
